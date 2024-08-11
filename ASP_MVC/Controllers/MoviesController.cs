@@ -41,13 +41,13 @@ namespace ASP_MVC.Controllers
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
 
-            var movieGenreVM = new MovieGenreViewModel
+            var movieGenreVMData = new MovieGenreViewModel
             {
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
                 Movies = await movies.ToListAsync()
             };
 
-            return View(movieGenreVM);
+            return View(movieGenreVMData);
         }
 
         // GET: Movies/Details/5
